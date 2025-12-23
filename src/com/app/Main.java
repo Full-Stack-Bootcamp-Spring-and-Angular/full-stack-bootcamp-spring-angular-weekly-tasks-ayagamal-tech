@@ -7,21 +7,34 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
 
-        try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Enter: ");
-            double value = input.nextDouble();
+        // define container
+        ApplicationContext container = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-            // define container
-            ApplicationContext container = new ClassPathXmlApplicationContext("applicationContext.xml");
+        /* CIRCLE */
+        // Retrieve a bean for Circle class and draw the Circle
+        Circle circle = (Circle) container.getBean("circle");
 
-            // retrieve a bean for Circle class
-            Shape circle = container.getBean("circle", Shape.class);
-            circle.getArea(value);
+        // Use bean for Circle
+        circle.draw2D();
 
-            // retrieve a bean for Square class
-            Shape square = container.getBean("square", Shape.class);
-            square.getArea(value);
+        /* SQUARE */
+        // Retrieve a bean for Square class and draw the Square
+        Square square = (Square) container.getBean("square2D", Square.class);
 
-        }
+        // Use bean for Square 2D
+        square.draw2D();
+
+        /*
+        // Constructor injection into Circle
+        Draw2D draw2D = new Draw2D();
+        Circle circle = new Circle(draw2D);
+        circle.draw();
+
+        // Setter injection into Square
+        Square square = new Square();
+        square.setDraw2D(draw2D);
+        square.draw();
+        */
+
     }
 }

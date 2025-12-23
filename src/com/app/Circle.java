@@ -2,9 +2,16 @@ package com.app;
 
 public class Circle implements Shape {
 
+    private final Draw2D draw2D;
+
+    // Constructor injection into Circle
+    public Circle(Draw2D draw2D){
+        this.draw2D = draw2D;
+    }
+
     @Override
-    public void getArea(double radius) {
-        System.out.println(String.format("the area of the circle = %s", Math.PI * Math.pow(radius,2)));
+    public void draw2D() {
+        draw2D.draw2D("Circle");
     }
 
 }
