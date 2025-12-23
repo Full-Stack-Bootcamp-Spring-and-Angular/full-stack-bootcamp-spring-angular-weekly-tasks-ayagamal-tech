@@ -19,9 +19,9 @@ public class Main {
 
         /* SQUARE */
         // Retrieve a bean for Square class and draw the Square
-        Square square = (Square) container.getBean("square", Square.class);
+        Square square = (Square) container.getBean("square2D", Square.class);
 
-        // Use bean for Square
+        // Use bean for Square 2D
         square.draw2D();
 
         /*
