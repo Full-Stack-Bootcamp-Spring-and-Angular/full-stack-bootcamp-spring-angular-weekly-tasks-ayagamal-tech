@@ -1,12 +1,16 @@
 package com.app;
 
 public class Square implements Shape {
-    public Draw2D draw2D;
-    public Draw3D draw3D;
+    private Draw2D draw2D;
+    private Draw3D draw3D;
 
     // Setter injection into Square
     public void setDraw2D(Draw2D draw2D){
         this.draw2D = draw2D;
+    }
+    //setter injection for Draw3D
+    public void setDraw3D(Draw3D draw3D){
+        this.draw3D = draw3D;
     }
 
     @Override
@@ -14,8 +18,4 @@ public class Square implements Shape {
         draw2D.draw2D("Square");
     }
 
-    @Override
-    public void draw3D() {
-        draw3D.draw3D("Square");
-    }
 }
