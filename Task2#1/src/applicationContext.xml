@@ -14,10 +14,12 @@
         <constructor-arg ref="DrawBean2D"/>
     </bean>
 
-    <bean id="square" class="com.app.Square">
-        <property name="Draw2D" ref="DrawBean2D"/>
+    <bean id="square2D" class="com.app.Square">
+        <property name="draw2D" ref="DrawBean2D"/>
+    </bean>
+
+    <bean id="square3D" class="com.app.Square">
+        <property name="draw3D" ref="DrawBean3D"/>
     </bean>
 
 </beans>
-
-
